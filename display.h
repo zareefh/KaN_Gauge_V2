@@ -8,14 +8,12 @@
 #pragma once
 
 #include <TFT_eWidget.h>
-#include <TFT_eSPI.h> 
+#include <TFT_eSPI.h>
 #include <PNGdec.h>
 
 #include <SPI.h>
-#include "bootlogos/bmm.h"
-#include "bootlogos/fome.h"
 #include "bootlogos/mazda.h"
-#include "bootlogos/kan.h"
+#include "bootlogos/zareef.h"
 
 #include "wifi.h"
 #include "pinMap.h"
@@ -257,49 +255,27 @@ void pngDraw(PNGDRAW *pDraw)
 void printBootLogo(int bootLogoSel)
 {
 
-  int16_t rcBMM, rcFOME, rcMazda, rcKan;
+  int16_t rcMazda, rcZareef;
 
   switch (bootLogoSel)
   {
   case 0:
-    rcKan = png.openFLASH((uint8_t *)kan, sizeof(kan), pngDraw);
-    if (rcKan == PNG_SUCCESS)
+    rcMazda = png.openFLASH((uint8_t *)mazda, sizeof(mazda), pngDraw);
+    if (rcMazda == PNG_SUCCESS)
     {
       tft.startWrite();
-      rcKan = png.decode(NULL, 0);
+      rcMazda = png.decode(NULL, 0);
       tft.endWrite();
     }
 
     break;
 
   case 1:
-    rcBMM = png.openFLASH((uint8_t *)bmm, sizeof(bmm), pngDraw);
-    if (rcBMM == PNG_SUCCESS)
+    rcZareef = png.openFLASH((uint8_t *)zareef, sizeof(zareef), pngDraw);
+    if (rcZareef == PNG_SUCCESS)
     {
       tft.startWrite();
-      rcBMM = png.decode(NULL, 0);
-      tft.endWrite();
-    }
-
-    break;
-
-  case 2:
-
-    rcFOME = png.openFLASH((uint8_t *)fome, sizeof(fome), pngDraw);
-    if (rcFOME == PNG_SUCCESS)
-    {
-      tft.startWrite();
-      rcFOME = png.decode(NULL, 0);
-      tft.endWrite();
-    }
-    break;
-
-  case 3:
-    rcMazda = png.openFLASH((uint8_t *)mazda, sizeof(mazda), pngDraw);
-    if (rcMazda == PNG_SUCCESS)
-    {
-      tft.startWrite();
-      rcMazda = png.decode(NULL, 0);
+      rcZareef = png.decode(NULL, 0);
       tft.endWrite();
     }
     break;

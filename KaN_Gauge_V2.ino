@@ -5,7 +5,7 @@
 
   Build target ESP32 S3
 
-  Extract libraries included in /libraries to your libraries directory 
+  Extract libraries included in /libraries to your libraries directory
     Typically ".../Arduino/liberaries/" in User/Documents directory
   Includes:
     Adafruit_NeoPixel 1.12.0
@@ -15,7 +15,7 @@
     TFT_eWidget       0.0.5   (modified, to adjust meter)
 
   Using libraries from library manager / github should be okay, but will require modifications to the TFT_eSPI libraries.
-  
+
 */
 
 
